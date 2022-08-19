@@ -1,0 +1,33 @@
+{
+  "name": "color-utils-site",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmsn/color-utils-site.git"
+  },
+  "author": "nmsn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nmsn/color-utils-site/issues"
+  },
+  "homepage": "https://github.com/nmsn/color-utils-site#readme",
+  "dependencies": {
+    "next": "^12.2.5",
+    "react": "^18.2.0",
+    "react-color": "^2.19.3",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-color": "^3.0.6",
+    "typescript": "^4.7.4"
+  }
+}
