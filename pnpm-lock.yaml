@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@nmsn/color-utils': ^0.0.1
   '@types/react': ^18.0.17
   '@types/react-color': ^3.0.6
   next: ^12.2.5
@@ -10,6 +11,7 @@ specifiers:
   typescript: ^4.7.4
 
 dependencies:
+  '@nmsn/color-utils': 0.0.1
   next: 12.2.5_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-color: 2.19.3_react@18.2.0
@@ -151,6 +153,12 @@ packages:
     dev: false
     optional: true
 
+  /@nmsn/color-utils/0.0.1:
+    resolution: {integrity: sha512-xwuNksHB2NdK1GQO4yIWFA4Xfweb3Ystx5coLoLEpz0Ea/K6ef31vHFPJTrCBrphq5+/o8SdL+ipjjRC2JxdJw==}
+    dependencies:
+      color-name: 1.1.4
+    dev: false
+
   /@swc/helpers/0.4.3:
     resolution: {integrity: sha512-6JrF+fdUK2zbGpJIlN7G3v966PQjyx/dPt1T9km2wj+EUBqgrxCk3uX4Kct16MIm9gGxfKRcfax2hVf5jvlTzA==}
     dependencies:
@@ -188,6 +196,10 @@ packages:
 
   /caniuse-lite/1.0.30001378:
     resolution: {integrity: sha512-JVQnfoO7FK7WvU4ZkBRbPjaot4+YqxogSDosHv0Hv5mWpUESmN+UubMU6L/hGz8QlQ2aY5U0vR6MOs6j/CXpNA==}
+    dev: false
+
+  /color-name/1.1.4:
+    resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: false
 
   /csstype/3.1.0:

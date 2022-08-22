@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ChromePicker, ColorResult } from "react-color";
-import { model2Color } from "color-utils";
+import { model2Color } from "@nmsn/color-utils";
 import styles from "./index.module.css";
 
 const DEFAULT_RGBA = {
