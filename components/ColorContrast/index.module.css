@@ -1,18 +1,3 @@
-/* body {
-  margin: 0;
-} */
-
-.index {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
 .colorContract {
   position: relative;
   width: 800px;
@@ -89,40 +74,4 @@
 
 .down {
   color: green;
-}
-
-.colorMix {
-  width: 800px;
-  height: 200px;
-  display: flex;
-
-}
-
-.colorMixContent {
-  display: flex;
-  /* padding: 20px; */
-  width: 400px;
-  justify-content: space-between;
-}
-
-.baseColor {
-  /* width: 100px;
-  height: 20px;
-  margin-bottom: 20px; */
-  margin-right: 20px;
-}
-
-.mixColor {
-  width: 20px;
-  height: 100%;
-}
-
-.baseColorItem {
-  width: 100px;
-  height: 20px;
-  margin-bottom: 20px;
-}
-
-.baseColorItem:last-of-type {
-  margin-bottom: 0px;
 }
