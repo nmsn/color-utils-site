@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { ChromePicker, ColorResult } from "react-color";
+import { ColorResult, SketchPicker } from "react-color";
 
 export const DEFAULT_RGBA = {
   r: 255,
@@ -22,7 +22,7 @@ const ColorPicker = ({
   };
 
   return (
-    <ChromePicker
+    <SketchPicker
       onChange={onCurChange}
       onChangeComplete={onCurChange}
       color={color}
