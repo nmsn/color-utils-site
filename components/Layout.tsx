@@ -1,21 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-const Layout = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return <div className={className}>{children}</div>;
-};
-
-const StyledLayout = styled(Layout)`
+const StyledLayout = styled.div`
   width: 800px;
   margin: auto;
   display: flex;
   justify-content: space-between;
+  padding-top: 150px;
 `;
 
-export default StyledLayout;
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  return <StyledLayout>{children}</StyledLayout>;
+};
+
+export default Layout;
