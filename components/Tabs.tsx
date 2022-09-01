@@ -14,16 +14,18 @@ const StyledTab = styled.div`
   padding: 8px 10px;
   color: white;
   background-color: ${(props) => (props.isActive ? themeColor : themeColor2)};
-  width: 100px;
+  width: 150px;
   border-radius: 4px;
+  text-align: right;
 
   ${(props) =>
     props.isActive
-      ? `cursor: none;`
+      ? ``
       : `:hover {
     background-color: ${hoverColor};
-    cursor: pointer;
   }`}
+
+  cursor: pointer;
 `;
 
 const Tab = ({
