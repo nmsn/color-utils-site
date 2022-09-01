@@ -5,14 +5,18 @@ import ColorPicker from "./ColorPicker";
 type ColorPickerType = React.ComponentProps<typeof ColorPicker>;
 type ColorValue = Parameters<ColorPickerType["onChange"]>[0];
 
+const StyleColorPickerGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
 const ColorPickerGroup = ({
   sum = 2,
   onChange,
-  className,
 }: {
-  sum: number;
+  sum?: number;
   onChange?: (data: ColorValue[]) => void;
-  className?: string;
 }) => {
   const [groupData, setGroupData] = useState([]);
 
@@ -26,22 +30,17 @@ const ColorPickerGroup = ({
   };
 
   return (
-    <div className={className}>
+    <StyleColorPickerGroup>
       {Array(sum)
         .fill(undefined)
         .map((item, index) => (
-          <ColorPicker onChange={(value) => onGroupChange(value, index)} />
+          <ColorPicker
+            onChange={(value) => onGroupChange(value, index)}
+            key={index}
+          />
         ))}
-    </div>
+    </StyleColorPickerGroup>
   );
 };
 
-const StyleColorPickerGroup = styled(ColorPickerGroup)`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px;
-  border-radius: 4px;
-`;
-
-export default StyleColorPickerGroup;
+export default ColorPickerGroup;
