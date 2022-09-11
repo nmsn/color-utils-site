@@ -7,7 +7,6 @@ import {
 import Layout from "../components/Layout";
 import ColorPicker from "../components/ColorPicker";
 import ColorPickerGroup from "../components/ColorPickerGroup";
-// import  from ''
 import ColorCardGroup from "../components/ColorCardGroup";
 import Tabs from "../components/Tabs";
 
@@ -40,8 +39,6 @@ const ColorMix = () => {
 
   const result = mix2Color(newColors, "rgb");
 
-  console.log(newColors, result);
-
   return (
     <>
       <ColorPickerGroup onChange={onChange} />
@@ -71,7 +68,6 @@ const ColorComplementary = () => {
   const newColor = model2Color(color?.rgb, "rgb");
   const result = calcComplementaryColor(newColor);
 
-  console.log(newColor, result);
   return (
     <>
       <ColorPicker onChange={onChange} />
