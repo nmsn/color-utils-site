@@ -5,7 +5,6 @@ const StyledLayout = styled.div`
   width: 800px;
   margin: auto;
   display: flex;
-  justify-content: space-between;
   padding-top: 150px;
 `;
 

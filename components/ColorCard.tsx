@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const StyledCard = styled.div`
-  width: ${(props) => props?.width || "100%"};
-  height: ${(props) => props?.height || "100%"};
+  width: ${(props) => `${props?.width || 0}px` || "100%"};
+  height: ${(props) => `${props?.height || 0}px` || "100%"};
   background-color: ${(props) => props.color};
 `;
 
