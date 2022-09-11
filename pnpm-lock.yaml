@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@nmsn/color-utils': ^0.0.1
+  '@nmsn/color-utils': 0.0.4
   '@types/node': ^18.7.9
   '@types/react': ^18.0.17
   '@types/react-color': ^3.0.6
@@ -13,7 +13,7 @@ specifiers:
   typescript: ^4.7.4
 
 dependencies:
-  '@nmsn/color-utils': 0.0.1
+  '@nmsn/color-utils': 0.0.4
   next: 12.2.5_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-color: 2.19.3_react@18.2.0
@@ -325,8 +325,8 @@ packages:
     dev: false
     optional: true
 
-  /@nmsn/color-utils/0.0.1:
-    resolution: {integrity: sha512-xwuNksHB2NdK1GQO4yIWFA4Xfweb3Ystx5coLoLEpz0Ea/K6ef31vHFPJTrCBrphq5+/o8SdL+ipjjRC2JxdJw==}
+  /@nmsn/color-utils/0.0.4:
+    resolution: {integrity: sha512-/ji1fkSi4+gLMCnjr8EYldRGEF3u3TddKSOU3+yy9rUL+mNqYXnHnqEKrTA1Gf8BT1LxAcyMG/r9dqQonY1jBQ==}
     dependencies:
       color-name: 1.1.4
     dev: false
