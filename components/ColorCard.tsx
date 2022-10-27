@@ -1,13 +1,33 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { calcComplementaryColor, validator } from "@nmsn/color-utils";
 
-const StyledCard = styled.div`
+const Card = ({ className, children }) => {
+  const [visible, setVisible] = useState(false);
+  return (
+    <div
+      className={className}
+      onMouseEnter={() => setVisible(true)}
+      onMouseLeave={() => setVisible(false)}
+    >
+      {visible ? children : null}
+    </div>
+  );
+};
+
+const StyledCard = styled(Card)`
   width: ${(props) => `${props?.width || 0}px` || "100%"};
   height: ${(props) => `${props?.height || 0}px` || "100%"};
   background-color: ${(props) => props.color};
   border: ${(props) =>
     `${props?.borderColor ? `1px solid ${props?.borderColor}` : ""}`};
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
+
+const StyledCardText = styled.div``;
 
 type ColorCardProps = {
   color: string;
@@ -40,7 +60,9 @@ const ColorCard = ({
       width={width}
       height={height}
       borderColor={borderColor}
-    />
+    >
+      <StyledCardText>{color}</StyledCardText>
+    </StyledCard>
   );
 };
 
