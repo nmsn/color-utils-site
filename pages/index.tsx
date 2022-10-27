@@ -10,12 +10,22 @@ import ColorPickerGroup from "../components/ColorPickerGroup";
 import ColorCardGroup from "../components/ColorCardGroup";
 import Tabs from "../components/Tabs";
 
+const defaultRgb = {
+  r: 255,
+  g: 255,
+  b: 255,
+  a: 1,
+};
+
 const ColorContrast = () => {
   const onChange = (value) => setColors(value);
 
   const [colors, setColors] = useState([]);
 
-  const newColors = colors.map((item) => model2Color(item.rgb, "rgb"));
+  const newColors = colors.map((item) =>
+    model2Color(item?.rgb || defaultRgb, "rgb")
+  );
+
   return (
     <>
       <ColorPickerGroup onChange={onChange} />
@@ -35,7 +45,9 @@ const ColorMix = () => {
   const [colors, setColors] = useState([]);
   const onChange = (value) => setColors(value);
 
-  const newColors = colors.map((item) => model2Color(item.rgb, "rgb"));
+  const newColors = colors.map((item) =>
+    model2Color(item?.rgb || defaultRgb, "rgb")
+  );
 
   const result = mix2Color(newColors, "rgb");
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-import ColorPicker from "./ColorPicker";
+
+import ColorPicker, { DEFAULT_RGBA } from "./ColorPicker";
 import Space from "./Space";
 
 type ColorPickerType = React.ComponentProps<typeof ColorPicker>;
@@ -19,7 +20,7 @@ const ColorPickerGroup = ({
   sum?: number;
   onChange?: (data: ColorValue[]) => void;
 }) => {
-  const [groupData, setGroupData] = useState([]);
+  const [groupData, setGroupData] = useState(Array(sum).fill(undefined));
 
   const onGroupChange = (value: ColorValue, index: number) => {
     setGroupData((pre) => {
