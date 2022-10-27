@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { calcComplementaryColor, validator } from "@nmsn/color-utils";
+import { calcComplementaryColor } from "@nmsn/color-utils";
 
 const Card = ({ className, children }) => {
   const [visible, setVisible] = useState(false);
@@ -27,7 +27,9 @@ const StyledCard = styled(Card)`
   align-items: center;
 `;
 
-const StyledCardText = styled.div``;
+const StyledCardText = styled.div`
+  color: ${(props) => `${props?.color}`};
+`;
 
 type ColorCardProps = {
   color: string;
@@ -36,32 +38,12 @@ type ColorCardProps = {
   border?: boolean | string;
 };
 
-const ColorCard = ({
-  color,
-  width,
-  height,
-  border = false,
-}: ColorCardProps) => {
-  const borderColor = (() => {
-    if (border === true) {
-      return calcComplementaryColor(color, "rgb");
-    }
-
-    if (typeof border === "string" && validator.isColor(border)) {
-      return border;
-    }
-
-    return "";
-  })();
+const ColorCard = ({ color, width, height }: ColorCardProps) => {
+  const complementaryColor = calcComplementaryColor(color, "rgb");
 
   return (
-    <StyledCard
-      color={color}
-      width={width}
-      height={height}
-      borderColor={borderColor}
-    >
-      <StyledCardText>{color}</StyledCardText>
+    <StyledCard color={color} width={width} height={height}>
+      <StyledCardText color={complementaryColor}>{color}</StyledCardText>
     </StyledCard>
   );
 };
