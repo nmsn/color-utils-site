@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/nmsn/color-utils-site#readme",
   "dependencies": {
-    "@nmsn/color-utils": "0.0.4",
+    "@nmsn/color-utils": "0.1.0",
     "next": "^12.2.5",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
