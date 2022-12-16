@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Space from "./Space";
 import { mix2Color } from "@nmsn/color-utils";
 import { themeColor, themeColor2 } from "../utils/theme";
@@ -10,42 +9,34 @@ type TabType = { label: string; value: TabValue };
 
 const hoverColor = mix2Color([themeColor2, "white"], "hex", [0.8, 0.2]);
 
-const StyledTab = styled.div`
-  padding: 8px 10px;
-  color: white;
-  background-color: ${(props) => (props.isActive ? themeColor : themeColor2)};
-  width: 150px;
-  border-radius: 4px;
-  text-align: right;
-
-  ${(props) =>
-    props.isActive
-      ? ``
-      : `:hover {
-    background-color: ${hoverColor};
-  }`}
-
-  cursor: pointer;
-`;
-
 const Tab = ({
+  children,
   isActive,
-  label,
   value,
   onChange,
 }: {
+  children: React.ReactNode;
   isActive: boolean;
-  label: string;
   value: TabValue;
   onChange: (val: TabValue) => void;
 }) => {
   return (
-    <StyledTab
-      isActive={isActive}
+    <div
+      css={{
+        padding: "8px 10px",
+        color: "white",
+        backgroundColor: isActive ? themeColor : themeColor2,
+        width: 150,
+        borderRadius: 4,
+        textAlign: "right",
+        ":hover": {
+          backgroundColor: isActive ? undefined : hoverColor,
+        },
+      }}
       onClick={!isActive ? () => onChange(value) : null}
     >
-      {label}
-    </StyledTab>
+      {children}
+    </div>
   );
 };
 
@@ -75,11 +66,12 @@ const Tabs = ({
       {tabs.map(({ label, value }) => (
         <Tab
           key={value}
-          label={label}
           value={value}
           isActive={value === curKey}
           onChange={onCurChange}
-        />
+        >
+          {label}
+        </Tab>
       ))}
     </Space>
   );

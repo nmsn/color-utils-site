@@ -1,12 +1,32 @@
-import styled from "styled-components";
 import { useState } from "react";
 import { calcComplementaryColor } from "@nmsn/color-utils";
 
-const Card = ({ className, children }) => {
+const Card = ({
+  children,
+  width,
+  height,
+  color,
+  borderColor,
+}: {
+  children: any;
+  width: number;
+  height: number;
+  color: string;
+  borderColor?: string;
+}) => {
   const [visible, setVisible] = useState(false);
   return (
     <div
-      className={className}
+      css={{
+        width: width ?? "100%",
+        height: height ?? "100%",
+        backgroundColor: color,
+        border: borderColor ? `1px solid ${borderColor}` : undefined,
+        borderRadius: 4,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
     >
@@ -15,21 +35,9 @@ const Card = ({ className, children }) => {
   );
 };
 
-const StyledCard = styled(Card)`
-  width: ${(props) => `${props?.width || 0}px` || "100%"};
-  height: ${(props) => `${props?.height || 0}px` || "100%"};
-  background-color: ${(props) => props.color};
-  border: ${(props) =>
-    `${props?.borderColor ? `1px solid ${props?.borderColor}` : ""}`};
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledCardText = styled.div`
-  color: ${(props) => `${props?.color}`};
-`;
+const CardText = ({ children, color }: { children: any; color: string }) => (
+  <div css={{ color }}>{children}</div>
+);
 
 type ColorCardProps = {
   color: string;
@@ -42,9 +50,9 @@ const ColorCard = ({ color, width, height }: ColorCardProps) => {
   const complementaryColor = calcComplementaryColor(color, "rgb");
 
   return (
-    <StyledCard color={color} width={width} height={height}>
-      <StyledCardText color={complementaryColor}>{color}</StyledCardText>
-    </StyledCard>
+    <Card color={color} width={width} height={height}>
+      <CardText color={complementaryColor}>{color}</CardText>
+    </Card>
   );
 };
 
