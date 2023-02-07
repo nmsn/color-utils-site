@@ -3,6 +3,7 @@ import {
   model2Color,
   mix2Color,
   calcComplementaryColor,
+  isLight,
 } from "@nmsn/color-utils";
 import Layout from "../components/Layout";
 import ColorPicker from "../components/ColorPicker";
@@ -95,6 +96,29 @@ const ColorComplementary = () => {
   );
 };
 
+const ColorLight = () => {
+  const onChange = (value) => setColor(value);
+  const [color, setColor] = useState({ rgb: { r: 0, g: 0, b: 0, a: 1 } });
+  const newColor = model2Color(color?.rgb, "rgb");
+  const result = calcComplementaryColor(newColor);
+
+  const lightFlag = isLight(newColor);
+
+  return (
+    <>
+      <ColorPicker onChange={onChange} />
+      <div style={{ marginTop: 20 }}>
+        <ColorCardGroup
+          width={220}
+          height={100}
+          colors={[newColor, lightFlag ? "#fff" : "#000"]}
+          distance={20}
+        />
+      </div>
+    </>
+  );
+};
+
 const HomePage = () => {
   const [tab, setTab] =
     useState<React.ComponentProps<typeof Tabs>["activeTab"]>(1);
@@ -103,6 +127,7 @@ const HomePage = () => {
     { label: "颜色对比", value: 1 },
     { label: "颜色融合", value: 2 },
     { label: "补色", value: 3 },
+    { label: "明度判断", value: 4 },
   ] as React.ComponentProps<typeof Tabs>["tabs"];
   return (
     <Layout>
@@ -114,6 +139,7 @@ const HomePage = () => {
         {tab === 1 && <ColorContrast />}
         {tab === 2 && <ColorMix />}
         {tab === 3 && <ColorComplementary />}
+        {tab === 4 && <ColorLight />}
       </div>
     </Layout>
   );
