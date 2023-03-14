@@ -18,7 +18,7 @@ const ColorCardGroup = ({
   return (
     <Space type={type} distance={distance}>
       {colors.map(item => (
-        <ColorCard color={item} width={width} height={height} />
+        <ColorCard color={item} width={width} height={height} key={item} />
       ))}
     </Space>
   );

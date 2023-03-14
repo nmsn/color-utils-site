@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ColorResult, SketchPicker } from 'react-color';
 
 export const DEFAULT_RGBA = {
@@ -8,8 +8,17 @@ export const DEFAULT_RGBA = {
   a: 1,
 };
 
-const ColorPicker = ({ onChange }: { onChange?: (color: ColorResult) => void }) => {
+type ColorPickerProps = {
+  onChange?: (color: ColorResult) => void;
+  value?: ColorResult['rgb'];
+};
+
+const ColorPicker = ({ value, onChange }: ColorPickerProps) => {
   const [color, setColor] = useState<ColorResult['rgb']>(DEFAULT_RGBA);
+
+  useEffect(() => {
+    setColor(value);
+  }, [value]);
 
   const onCurChange = (color: ColorResult) => {
     setColor(color?.rgb);

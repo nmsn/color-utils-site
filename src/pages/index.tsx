@@ -73,7 +73,6 @@ const ColorLight = () => {
   const onChange = value => setColor(value);
   const [color, setColor] = useState({ rgb: { r: 0, g: 0, b: 0, a: 1 } });
   const newColor = model2Color(color?.rgb, 'rgb');
-  const result = calcComplementaryColor(newColor);
 
   const lightFlag = isLight(newColor);
 
