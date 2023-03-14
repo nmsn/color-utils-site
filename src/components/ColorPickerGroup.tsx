@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import ColorPicker from "./ColorPicker";
-import Space from "./Space";
+import ColorPicker from './ColorPicker';
+import Space from './Space';
 
 type ColorPickerType = React.ComponentProps<typeof ColorPicker>;
-type ColorValue = Parameters<ColorPickerType["onChange"]>[0];
+type ColorValue = Parameters<ColorPickerType['onChange']>[0];
 
 const ColorPickerGroup = ({
   sum = 2,
@@ -16,7 +16,7 @@ const ColorPickerGroup = ({
   const [groupData, setGroupData] = useState(Array(sum).fill(undefined));
 
   const onGroupChange = (value: ColorValue, index: number) => {
-    setGroupData((pre) => {
+    setGroupData(pre => {
       const cur = [...pre];
       cur[index] = value;
       onChange?.(cur);
@@ -27,18 +27,15 @@ const ColorPickerGroup = ({
   return (
     <div
       css={{
-        display: "flex",
-        width: "100%",
+        display: 'flex',
+        width: '100%',
       }}
     >
       <Space distance={20}>
         {Array(sum)
           .fill(undefined)
           .map((item, index) => (
-            <ColorPicker
-              onChange={(value) => onGroupChange(value, index)}
-              key={index}
-            />
+            <ColorPicker onChange={value => onGroupChange(value, index)} key={index} />
           ))}
       </Space>
     </div>

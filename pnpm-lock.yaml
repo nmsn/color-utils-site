@@ -9,6 +9,7 @@ specifiers:
   '@types/react': ^18.0.28
   '@types/react-color': ^3.0.6
   next: ^12.3.4
+  prettier: ^2.8.4
   react: ^18.2.0
   react-color: ^2.19.3
   react-dom: ^18.2.0
@@ -28,6 +29,7 @@ devDependencies:
   '@types/node': 18.14.6
   '@types/react': 18.0.28
   '@types/react-color': 3.0.6
+  prettier: 2.8.4
   typescript: 4.9.5
 
 packages:
@@ -633,6 +635,12 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: false
+
+  /prettier/2.8.4:
+    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
 
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}

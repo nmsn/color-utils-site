@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { calcComplementaryColor } from "@nmsn/color-utils";
+import { useState } from 'react';
+import { calcComplementaryColor } from '@nmsn/color-utils';
 
 const Card = ({
   children,
@@ -18,14 +18,14 @@ const Card = ({
   return (
     <div
       css={{
-        width: width ?? "100%",
-        height: height ?? "100%",
+        width: width ?? '100%',
+        height: height ?? '100%',
         backgroundColor: color,
         border: borderColor ? `1px solid ${borderColor}` : undefined,
         borderRadius: 4,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
@@ -47,7 +47,7 @@ type ColorCardProps = {
 };
 
 const ColorCard = ({ color, width, height }: ColorCardProps) => {
-  const complementaryColor = calcComplementaryColor(color, "rgb");
+  const complementaryColor = calcComplementaryColor(color, 'rgb');
 
   return (
     <Card color={color} width={width} height={height}>

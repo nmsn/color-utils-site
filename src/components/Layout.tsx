@@ -3,8 +3,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <div
       css={{
         width: 800,
-        margin: "auto",
-        display: "flex",
+        margin: 'auto',
+        display: 'flex',
         paddingTop: 150,
       }}
     >
