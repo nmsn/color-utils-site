@@ -27,6 +27,7 @@ const Card = ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        boxShadow: 'rgb(0 0 0 / 15%) 0px 8px 16px',
       }}
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
