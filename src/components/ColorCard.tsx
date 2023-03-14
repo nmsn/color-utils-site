@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { calcComplementaryColor } from '@nmsn/color-utils';
 
 const Card = ({
@@ -8,7 +9,7 @@ const Card = ({
   color,
   borderColor,
 }: {
-  children: any;
+  children: React.ReactNode;
   width: number;
   height: number;
   color: string;
@@ -35,7 +36,7 @@ const Card = ({
   );
 };
 
-const CardText = ({ children, color }: { children: any; color: string }) => (
+const CardText = ({ children, color }: { children: React.ReactNode; color: string }) => (
   <div css={{ color }}>{children}</div>
 );
 

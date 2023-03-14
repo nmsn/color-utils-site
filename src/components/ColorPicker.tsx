@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { ColorResult, SketchPicker } from 'react-color';
 
 export const DEFAULT_RGBA = {

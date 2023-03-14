@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Space from './Space';
+
 import { mix2Color } from '@nmsn/color-utils';
+
 import { themeColor, themeColor2 } from '../utils/theme';
+
+import Space from './Space';
 
 type TabValue = string | number;
 
