@@ -1,4 +1,4 @@
 node_modules/
 .next/
-
+.idea/
 release-toolbox.json
