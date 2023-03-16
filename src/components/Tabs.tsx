@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { mix2Color } from '@nmsn/color-utils';
 
-import { themeColor, themeColor2 } from '../utils/theme';
+import { baseShadow, themeColor, themeColor2 } from '../utils/theme';
 
 import Space from './Space';
 
@@ -32,6 +32,7 @@ const Tab = ({
         width: 150,
         borderRadius: 4,
         textAlign: 'right',
+        ...baseShadow,
         ':hover': {
           backgroundColor: isActive ? undefined : hoverColor,
         },

@@ -1,6 +1,6 @@
 import { mix2Color } from '@nmsn/color-utils';
 
-import { themeColor2 } from '../utils/theme';
+import { baseShadow, themeColor2 } from '../utils/theme';
 
 type ButtonProps = {
   width?: number | string;
@@ -8,10 +8,6 @@ type ButtonProps = {
   color?: string;
   onClick?: () => void;
   children?: React.ReactNode;
-};
-
-const baseShadow = {
-  boxShadow: '0 8px 16px rgba(0,0,0,.15)',
 };
 
 const Button = ({
