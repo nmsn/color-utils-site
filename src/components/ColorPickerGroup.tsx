@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import { themeColor2, themeColor5 } from '../utils/theme';
+import { themeColor5 } from '../utils/theme';
 
+import Button from './Button';
 import ColorPicker from './ColorPicker';
 import Space from './Space';
 
@@ -10,43 +11,17 @@ type ColorValue = Parameters<ColorPickerType['onChange']>[0];
 
 const Add = ({ onClick }: { onClick: () => void }) => {
   return (
-    <div
-      css={{
-        width: 100,
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 4,
-        color: '#fff',
-        backgroundColor: themeColor2,
-        boxShadow: '0 8px 16px rgba(0,0,0,.15)',
-      }}
-      onClick={onClick}
-    >
+    <Button onClick={onClick} width={100}>
       增加
-    </div>
+    </Button>
   );
 };
 
 const Delete = ({ onClick }: { onClick: () => void }) => {
   return (
-    <div
-      css={{
-        width: 100,
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 4,
-        color: '#fff',
-        backgroundColor: themeColor5,
-        boxShadow: '0 8px 16px rgba(0,0,0,.15)',
-      }}
-      onClick={onClick}
-    >
+    <Button onClick={onClick} color={themeColor5} width={100}>
       减少
-    </div>
+    </Button>
   );
 };
 
