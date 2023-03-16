@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { calcComplementaryColor } from '@nmsn/color-utils';
+import { isLight } from '@nmsn/color-utils';
 
 const Card = ({
   children,
@@ -49,11 +49,11 @@ type ColorCardProps = {
 };
 
 const ColorCard = ({ color, width, height }: ColorCardProps) => {
-  const complementaryColor = calcComplementaryColor(color, 'rgb');
+  const isLightColor = isLight(color);
 
   return (
     <Card color={color} width={width} height={height}>
-      <CardText color={complementaryColor}>{color}</CardText>
+      <CardText color={isLightColor ? '#000' : '#fff'}>{color}</CardText>
     </Card>
   );
 };
