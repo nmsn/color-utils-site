@@ -1,3 +1,5 @@
+import React from 'react';
+
 import ColorCard from './ColorCard';
 import Space from './Space';
 
