@@ -5,7 +5,7 @@ specifiers:
   '@emotion/react': ^11.10.6
   '@emotion/styled': ^11.10.6
   '@nmsn/color-utils': 0.2.0
-  '@types/node': ^18.14.6
+  '@types/node': ^18.15.3
   '@types/react': ^18.0.28
   '@types/react-color': ^3.0.6
   '@typescript-eslint/eslint-plugin': ^5.55.0
@@ -21,7 +21,7 @@ specifiers:
   react: ^18.2.0
   react-color: ^2.19.3
   react-dom: ^18.2.0
-  release-toolbox: ^0.1.0
+  release-toolbox: ^0.2.0
   typescript: ^4.9.5
 
 dependencies:
@@ -35,7 +35,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
-  '@types/node': 18.14.6
+  '@types/node': 18.15.3
   '@types/react': 18.0.28
   '@types/react-color': 3.0.6
   '@typescript-eslint/eslint-plugin': 5.55.0_342y7v4tc7ytrrysmit6jo4wri
@@ -47,7 +47,7 @@ devDependencies:
   husky: 8.0.3
   lint-staged: 13.2.0
   prettier: 2.8.4
-  release-toolbox: 0.1.0
+  release-toolbox: 0.2.0
   typescript: 4.9.5
 
 packages:
@@ -558,8 +558,8 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
 
-  /@types/node/18.14.6:
-    resolution: {integrity: sha512-93+VvleD3mXwlLI/xASjw0FzKcwzl3OdTCzm1LaRfqgS21gfFtK3zDXM5Op9TeeMsJVOaJ2VRDpT9q4Y3d0AvA==}
+  /@types/node/18.15.3:
+    resolution: {integrity: sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==}
     dev: true
 
   /@types/parse-json/4.0.0:
@@ -2820,8 +2820,8 @@ packages:
       functions-have-names: 1.2.3
     dev: true
 
-  /release-toolbox/0.1.0:
-    resolution: {integrity: sha512-OrWr0CPMoYlp/ogKkdQ47XIKYmI0qcp8kdyXBDbikuLQu810Kzymb4/ax4/+UTP3NvaimBJpQM/o86wjrPhGZQ==}
+  /release-toolbox/0.2.0:
+    resolution: {integrity: sha512-lMoGE/mbjMnlBWizOTHPPyLZiRR6V+PL3H8uXsJtCik7CE34yuifoUCg55g50BQSTgw7h8rMkkff7mkE4Vqcwg==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
