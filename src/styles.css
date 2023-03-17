@@ -1,3 +1,8 @@
 body {
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #fff;
+  font-size: 0.875em;
+  letter-spacing: 0.063em;
 }
