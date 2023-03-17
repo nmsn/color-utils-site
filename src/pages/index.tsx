@@ -26,7 +26,7 @@ const ColorContrast = () => {
     <>
       <ColorPickerGroup onChange={onChange} />
       <div style={{ marginTop: 20 }}>
-        <ColorCardGroup width={220} height={100} colors={newColors} distance={20} />
+        <ColorCardGroup width={220} height={220} colors={newColors} distance={20} />
       </div>
     </>
   );
@@ -44,10 +44,10 @@ const ColorMix = () => {
     <>
       <ColorPickerGroup onChange={onChange} />
       <div style={{ marginTop: 20 }}>
-        <ColorCardGroup width={220} height={100} colors={newColors} distance={20} />
+        <ColorCardGroup width={220} height={220} colors={newColors} distance={20} />
       </div>
       <div style={{ marginTop: 20 }}>
-        <ColorCardGroup width={460} height={100} colors={[result]} distance={20} />
+        <ColorCardGroup width={460} height={220} colors={[result]} distance={20} />
       </div>
     </>
   );
@@ -63,7 +63,7 @@ const ColorComplementary = () => {
     <>
       <ColorPicker onChange={onChange} />
       <div style={{ marginTop: 20 }}>
-        <ColorCardGroup width={220} height={100} colors={[newColor, result]} distance={20} />
+        <ColorCardGroup width={220} height={220} colors={[newColor, result]} distance={20} />
       </div>
     </>
   );
@@ -82,7 +82,7 @@ const ColorLight = () => {
       <div style={{ marginTop: 20 }}>
         <ColorCardGroup
           width={220}
-          height={100}
+          height={220}
           colors={[newColor, lightFlag ? '#fff' : '#000']}
           distance={20}
         />

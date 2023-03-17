@@ -7,3 +7,5 @@ export const themeColor5 = '#e76f51';
 export const baseShadow = {
   boxShadow: '0 8px 16px rgba(0,0,0,.15)',
 };
+
+export const textBackgroundColor = 'rgba(200, 200, 200, 0.2)';

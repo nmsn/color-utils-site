@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import { isLight } from '@nmsn/color-utils';
+import { color2Color, isLight } from '@nmsn/color-utils';
+
+import { textBackgroundColor } from '../utils/theme';
+
+import Space from './Space';
 
 const Card = ({
   children,
@@ -38,7 +42,23 @@ const Card = ({
 };
 
 const CardText = ({ children, color }: { children: React.ReactNode; color: string }) => (
-  <div css={{ color }}>{children}</div>
+  <div
+    css={{
+      color,
+      backgroundColor: textBackgroundColor,
+      textAlign: 'center',
+      padding: '4px 12px',
+      borderRadius: 4,
+      fontSize: 14,
+      opacity: 0.3,
+      cursor: 'pointer',
+      '&:hover': {
+        opacity: 0.8,
+      },
+    }}
+  >
+    {children}
+  </div>
 );
 
 type ColorCardProps = {
@@ -51,9 +71,19 @@ type ColorCardProps = {
 const ColorCard = ({ color, width, height }: ColorCardProps) => {
   const isLightColor = isLight(color);
 
+  const hex = color2Color(color, 'hex');
+  const rgb = color2Color(color, 'rgb');
+  const hsl = color2Color(color, 'hsl');
+
   return (
     <Card color={color} width={width} height={height}>
-      <CardText color={isLightColor ? '#000' : '#fff'}>{color}</CardText>
+      <Space type="vertical">
+        {[hex, rgb, hsl].map((item: string) => (
+          <CardText key={item} color={isLightColor ? '#000' : '#fff'}>
+            {item}
+          </CardText>
+        ))}
+      </Space>
     </Card>
   );
 };
