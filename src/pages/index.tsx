@@ -106,7 +106,7 @@ const HomePage = () => {
         <Tabs tabs={tabs} onChange={setTab} activeTab={tab} />
       </div>
 
-      <div>
+      <div css={{ marginBottom: 80 }}>
         {tab === 1 && <ColorContrast />}
         {tab === 2 && <ColorMix />}
         {tab === 3 && <ColorComplementary />}
