@@ -6,7 +6,10 @@ import ColorCardGroup from '../components/ColorCardGroup';
 import ColorPicker from '../components/ColorPicker';
 import ColorPickerGroup from '../components/ColorPickerGroup';
 import Layout from '../components/Layout';
+import Space from '../components/Space';
 import Tabs from '../components/Tabs';
+import Moon from '../public/moon';
+import Sun from '../public/sun';
 
 const defaultRgb = {
   r: 255,
@@ -69,6 +72,30 @@ const ColorComplementary = () => {
   );
 };
 
+const LightTag = ({ type }: { type: 'light' | 'dark' }) => {
+  const isLight = type === 'light';
+  const color = isLight ? '#000' : '#fff';
+  const background = isLight ? '#fff' : '#000';
+  return (
+    <div
+      css={{
+        width: 220,
+        height: 220,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background,
+        color,
+        borderRadius: 4,
+      }}
+    >
+      {isLight ? <Sun /> : <Moon />}
+      <div css={{ marginTop: 10 }}>{isLight ? '亮色' : '暗色'}</div>
+    </div>
+  );
+};
+
 const ColorLight = () => {
   const onChange = value => setColor(value);
   const [color, setColor] = useState({ rgb: { r: 0, g: 0, b: 0, a: 1 } });
@@ -79,13 +106,11 @@ const ColorLight = () => {
   return (
     <>
       <ColorPicker onChange={onChange} />
-      <div style={{ marginTop: 20 }}>
-        <ColorCardGroup
-          width={220}
-          height={220}
-          colors={[newColor, lightFlag ? '#fff' : '#000']}
-          distance={20}
-        />
+      <div css={{ marginTop: 20, display: 'flex' }}>
+        <Space>
+          <ColorCardGroup width={220} height={220} colors={[newColor]} distance={20} />
+          <LightTag type={lightFlag ? 'light' : 'dark'} />
+        </Space>
       </div>
     </>
   );
