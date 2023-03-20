@@ -9,3 +9,5 @@ export const baseShadow = {
 };
 
 export const textBackgroundColor = 'rgba(200, 200, 200, 0.2)';
+
+export const baseBorderRadius = 4;
