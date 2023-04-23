@@ -36,6 +36,7 @@ const Tab = ({
         ':hover': {
           backgroundColor: isActive ? undefined : hoverColor,
         },
+        userSelect: 'none',
       }}
       onClick={!isActive ? () => onChange(value) : null}
     >

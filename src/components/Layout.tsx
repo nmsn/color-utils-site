@@ -22,7 +22,7 @@ const Header = () => {
     >
       <div css={{ fontSize: 18, fontWeight: 'bold', display: 'flex', alignItems: 'center' }}>
         <Image src="/logo.png" alt="logo" width={24} height={24} />
-        <span css={{ marginLeft: '8px' }}>颜色工具</span>
+        <span css={{ marginLeft: '8px', userSelect: 'none' }}>颜色工具</span>
       </div>
       <div>
         <a href="https://github.com/nmsn/color-utils-site">
