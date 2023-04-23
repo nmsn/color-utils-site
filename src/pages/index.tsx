@@ -6,10 +6,10 @@ import ColorCardGroup from '../components/ColorCardGroup';
 import ColorPicker from '../components/ColorPicker';
 import ColorPickerGroup from '../components/ColorPickerGroup';
 import Layout from '../components/Layout';
+import Moon from '../components/Moon';
 import Space from '../components/Space';
+import Sun from '../components/Sun';
 import Tabs from '../components/Tabs';
-import Moon from '../public/moon';
-import Sun from '../public/sun';
 
 const defaultRgb = {
   r: 255,
@@ -120,7 +120,7 @@ const HomePage = () => {
   const [tab, setTab] = useState<React.ComponentProps<typeof Tabs>['activeTab']>(1);
 
   const tabs = [
-    { label: '颜色对比', value: 1 },
+    { label: '色值卡片', value: 1 },
     { label: '颜色融合', value: 2 },
     { label: '补色', value: 3 },
     { label: '明度判断', value: 4 },
