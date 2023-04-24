@@ -10,6 +10,7 @@ import Moon from '../components/Moon';
 import Space from '../components/Space';
 import Sun from '../components/Sun';
 import Tabs from '../components/Tabs';
+import Tag from '../components/Tag';
 
 const defaultRgb = {
   r: 255,
@@ -116,6 +117,60 @@ const ColorLight = () => {
   );
 };
 
+const Radio = ({
+  data,
+  value,
+  onChange,
+}: {
+  data: { label: string; value: number }[];
+  value: number;
+  onChange: (type: number) => void;
+}) => {
+  return (
+    <div>
+      {data.map(item => (
+        <div key={item.value}>
+          <input
+            type="radio"
+            checked={item.value === value}
+            onChange={() => onChange(item.value)}
+          />
+          <span css={{ color: '#000' }}>{item.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const TagConfig = () => {
+  const onChange = value => setColor(value);
+  const [color, setColor] = useState({ rgb: { r: 0, g: 0, b: 0, a: 1 } });
+  const newColor = model2Color(color?.rgb, 'rgb');
+
+  const [type, setType] = useState(1);
+
+  return (
+    <>
+      <ColorPicker onChange={onChange} />
+      <div css={{ marginTop: 20, display: 'flex' }}>
+        <Space>
+          <ColorCardGroup width={220} height={220} colors={[newColor]} distance={20} />
+          <Tag color={newColor} type={type} />
+          <Radio
+            data={[
+              { label: '具有背景色，醒目文案的', value: 1 },
+              { label: '边框文字同色，背景色减弱', value: 2 },
+              { label: '文字和背景色反差色', value: 3 },
+            ]}
+            value={type}
+            onChange={e => setType(e)}
+          />
+        </Space>
+      </div>
+    </>
+  );
+};
+
 const HomePage = () => {
   const [tab, setTab] = useState<React.ComponentProps<typeof Tabs>['activeTab']>(1);
 
@@ -124,6 +179,7 @@ const HomePage = () => {
     { label: '颜色融合', value: 2 },
     { label: '补色', value: 3 },
     { label: '明度判断', value: 4 },
+    { label: '徽标方案', value: 5 },
   ] as React.ComponentProps<typeof Tabs>['tabs'];
   return (
     <Layout>
@@ -136,6 +192,7 @@ const HomePage = () => {
         {tab === 2 && <ColorMix />}
         {tab === 3 && <ColorComplementary />}
         {tab === 4 && <ColorLight />}
+        {tab === 5 && <TagConfig />}
       </div>
     </Layout>
   );
