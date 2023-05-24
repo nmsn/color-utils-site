@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
 import { calcComplementaryColor, isLight, mix2Color, model2Color } from '@nmsn/color-utils';
 
@@ -221,7 +222,16 @@ const Shade = () => {
 };
 
 const HomePage = () => {
-  const [tab, setTab] = useState<React.ComponentProps<typeof Tabs>['activeTab']>(1);
+  const router = useRouter();
+
+  const tab = +router.query.tab;
+
+  const onTabChange = (tab: number) => {
+    // setTab(tab);
+    router.push({
+      query: { tab },
+    });
+  };
 
   const tabs = [
     { label: '色值卡片', value: 1 },
@@ -234,7 +244,7 @@ const HomePage = () => {
   return (
     <Layout>
       <div style={{ marginRight: 20 }}>
-        <Tabs tabs={tabs} onChange={setTab} activeTab={tab} />
+        <Tabs tabs={tabs} onChange={onTabChange} activeTab={tab} />
       </div>
 
       <div css={{ marginBottom: 80 }}>
