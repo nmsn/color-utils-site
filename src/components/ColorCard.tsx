@@ -95,23 +95,22 @@ type ColorCardProps = {
   width?: number;
   height?: number;
   border?: boolean | string;
+  type?: ('hex' | 'rgb' | 'hsl')[];
 };
 
-const ColorCard = ({ color, width, height }: ColorCardProps) => {
+const ColorCard = ({ color, width, height, type = ['hex', 'rgb', 'hsl'] }: ColorCardProps) => {
   const isLightColor = isLight(color);
-
-  const hex = color2Color(color, 'hex');
-  const rgb = color2Color(color, 'rgb');
-  const hsl = color2Color(color, 'hsl');
 
   return (
     <Card color={color} width={width} height={height}>
       <Space type="vertical">
-        {[hex, rgb, hsl].map((item: string) => (
-          <CardText key={item} color={isLightColor ? '#000' : '#fff'}>
-            {item}
-          </CardText>
-        ))}
+        {type
+          .map(item => color2Color(color, item))
+          .map((item: string) => (
+            <CardText key={item} color={isLightColor ? '#000' : '#fff'}>
+              {item}
+            </CardText>
+          ))}
       </Space>
     </Card>
   );

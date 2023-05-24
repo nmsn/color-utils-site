@@ -9,6 +9,7 @@ const ColorCardGroup = ({
   distance,
   width,
   height,
+  textType,
 }: {
   colors?: string[];
   width?: React.ComponentProps<typeof ColorCard>['width'];
@@ -16,11 +17,12 @@ const ColorCardGroup = ({
   border?: React.ComponentProps<typeof ColorCard>['border'];
   type?: React.ComponentProps<typeof Space>['type'];
   distance?: React.ComponentProps<typeof Space>['distance'];
+  textType?: React.ComponentProps<typeof ColorCard>['type'];
 }) => {
   return (
     <Space type={type} distance={distance}>
-      {colors.map(item => (
-        <ColorCard color={item} width={width} height={height} key={item} />
+      {colors.map((item, index) => (
+        <ColorCard key={item + index} color={item} width={width} height={height} type={textType} />
       ))}
     </Space>
   );

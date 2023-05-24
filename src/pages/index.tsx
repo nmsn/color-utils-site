@@ -171,6 +171,49 @@ const TagConfig = () => {
   );
 };
 
+const Shade = () => {
+  const onChange = value => setColor(value);
+  const [color, setColor] = useState({ rgb: { r: 0, g: 0, b: 0, a: 1 } });
+  const newColor = model2Color(color?.rgb, 'rgb');
+
+  const ratio = [
+    [1, 0],
+    [0.8, 0.2],
+    [0.6, 0.4],
+    [0.4, 0.6],
+    [0.2, 0.8],
+    [0, 1],
+  ];
+  const mixWhiteColor = ratio.map(item => mix2Color([newColor, '#fff'], 'hex', item));
+  const mixBlackColor = ratio.map(item => mix2Color([newColor, '#000'], 'hex', item));
+
+  return (
+    <>
+      <ColorPicker onChange={onChange} />
+      <div css={{ marginTop: 20, display: 'flex' }}>
+        <Space>
+          <ColorCardGroup
+            width={220}
+            height={50}
+            colors={mixWhiteColor}
+            distance={10}
+            type="vertical"
+            textType={['hex']}
+          />
+          <ColorCardGroup
+            width={220}
+            height={50}
+            colors={mixBlackColor}
+            distance={10}
+            type="vertical"
+            textType={['hex']}
+          />
+        </Space>
+      </div>
+    </>
+  );
+};
+
 const HomePage = () => {
   const [tab, setTab] = useState<React.ComponentProps<typeof Tabs>['activeTab']>(1);
 
@@ -180,6 +223,7 @@ const HomePage = () => {
     { label: '补色', value: 3 },
     { label: '明度判断', value: 4 },
     { label: '徽标方案', value: 5 },
+    { label: '渐变', value: 6 },
   ] as React.ComponentProps<typeof Tabs>['tabs'];
   return (
     <Layout>
@@ -193,6 +237,7 @@ const HomePage = () => {
         {tab === 3 && <ColorComplementary />}
         {tab === 4 && <ColorLight />}
         {tab === 5 && <TagConfig />}
+        {tab === 6 && <Shade />}
       </div>
     </Layout>
   );
