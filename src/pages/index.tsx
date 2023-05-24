@@ -127,13 +127,14 @@ const Radio = ({
   onChange: (type: number) => void;
 }) => {
   return (
-    <div>
+    <div css={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8 }}>
       {data.map(item => (
-        <div key={item.value}>
+        <div key={item.value} css={{ display: 'flex', alignItems: 'flex-start' }}>
           <input
             type="radio"
             checked={item.value === value}
             onChange={() => onChange(item.value)}
+            css={{ marginRight: 8 }}
           />
           <span css={{ color: '#000' }}>{item.label}</span>
         </div>
@@ -155,16 +156,21 @@ const TagConfig = () => {
       <div css={{ marginTop: 20, display: 'flex' }}>
         <Space>
           <ColorCardGroup width={220} height={220} colors={[newColor]} distance={20} />
-          <Tag color={newColor} type={type} />
-          <Radio
-            data={[
-              { label: '具有背景色，醒目文案的', value: 1 },
-              { label: '边框文字同色，背景色减弱', value: 2 },
-              { label: '文字和背景色反差色', value: 3 },
-            ]}
-            value={type}
-            onChange={e => setType(e)}
-          />
+          <Space type="vertical">
+            <Tag color={newColor} type={type} />
+            <Radio
+              data={[
+                { label: '调节背景色，文案通过背景色自动调节为有对比效果的白色或者黑色', value: 1 },
+                {
+                  label: '边框文字同色，背景色通过文字融入白色，变成较浅的颜色，凸显边框和文字',
+                  value: 2,
+                },
+                { label: '文字和背景色形成反差色', value: 3 },
+              ]}
+              value={type}
+              onChange={e => setType(e)}
+            />
+          </Space>
         </Space>
       </div>
     </>

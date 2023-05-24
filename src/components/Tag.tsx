@@ -20,12 +20,10 @@ const Tag = ({ color, type }: TagType) => {
     [3, { background: color, color: calcComplementaryColor(color) }],
   ]);
 
-  console.log(color, type, colorMap.get(type));
-
   return (
     <div
       css={{
-        padding: '8px 16px',
+        padding: type === 2 ? '6px 14px' : '8px 16px',
         lineHeight: '24px',
         height: '24px',
         borderRadius: baseBorderRadius,
