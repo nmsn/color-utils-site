@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { calcComplementaryColor, isLight, mix2Color, model2Color } from '@nmsn/color-utils';
@@ -39,17 +39,36 @@ const ColorContrast = () => {
 
 const ColorMix = () => {
   const [colors, setColors] = useState([]);
+  const [ratio, setRatio] = useState(0.5);
   const onChange = value => setColors(value);
 
   const newColors = colors.map(item => model2Color(item?.rgb || defaultRgb, 'rgb'));
 
-  const result = mix2Color(newColors, 'rgb');
+  const ratioArr = useMemo(() => {
+    return [1 - ratio, ratio];
+  }, [ratio]);
+
+  const result = mix2Color(newColors, 'rgb', ratioArr);
 
   return (
     <>
       <ColorPickerGroup onChange={onChange} />
       <div style={{ marginTop: 20 }}>
         <ColorCardGroup width={220} height={220} colors={newColors} distance={20} />
+      </div>
+      <div style={{ marginTop: 20, display: 'flex', justifyContent: 'space-between' }}>
+        <input
+          type="range"
+          onChange={e => setRatio(+e?.target?.value || 0)}
+          value={ratio}
+          min="0"
+          max="1"
+          step="0.01"
+          css={{ width: '80%' }}
+        />
+        <div css={{ color: '#000' }}>
+          {ratioArr.map(item => `${(item * 100).toFixed(0)}%`).join('/')}
+        </div>
       </div>
       <div style={{ marginTop: 20 }}>
         <ColorCardGroup width={460} height={220} colors={[result]} distance={20} />
@@ -224,7 +243,7 @@ const Shade = () => {
 const HomePage = () => {
   const router = useRouter();
 
-  const tab = +router.query.tab;
+  const tab = +router.query.tab || 1;
 
   const onTabChange = (tab: number) => {
     // setTab(tab);
