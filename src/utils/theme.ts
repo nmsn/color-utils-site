@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 export const themeColor = '#264653';
 export const themeColor2 = '#2a9d8f';
 export const themeColor3 = '#e9c46a';
@@ -11,3 +12,9 @@ export const baseShadow = {
 export const textBackgroundColor = 'rgba(200, 200, 200, 0.2)';
 
 export const baseBorderRadius = 4;
+
+export const textContainer = css({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+});

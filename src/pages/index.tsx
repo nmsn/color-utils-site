@@ -12,6 +12,7 @@ import Space from '../components/Space';
 import Sun from '../components/Sun';
 import Tabs from '../components/Tabs';
 import Tag from '../components/Tag';
+import { textContainer } from '../utils/theme';
 
 const defaultRgb = {
   r: 255,
@@ -216,7 +217,11 @@ const Shade = () => {
   return (
     <>
       <ColorPicker onChange={onChange} />
-      <div css={{ marginTop: 20, display: 'flex' }}>
+      <div css={{ marginTop: 20, display: 'flex', flexDirection: 'column' }}>
+        <Space>
+          <div css={[{ color: '#000', width: 220, height: 50 }, textContainer]}>白色</div>
+          <div css={[{ color: '#000', width: 220, height: 50 }, textContainer]}>黑色</div>
+        </Space>
         <Space>
           <ColorCardGroup
             width={220}
@@ -234,6 +239,13 @@ const Shade = () => {
             type="vertical"
             textType={['hex']}
           />
+          <Space type="vertical">
+            {ratio.map(item => (
+              <div key={item[1]} css={[{ height: 50, color: '#000' }, textContainer]}>
+                {item[1] * 100}%
+              </div>
+            ))}
+          </Space>
         </Space>
       </div>
     </>
